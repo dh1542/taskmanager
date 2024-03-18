@@ -1,9 +1,10 @@
 extern crate sysinfo;
 
 use byte_unit::{Byte, UnitType};
+use serde::Serialize;
 use sysinfo::System;
 
-#[derive(Debug)]
+#[derive(Debug, Serialize)]
 pub struct MetaInfo {
     name: String,
     value_i: u64,
