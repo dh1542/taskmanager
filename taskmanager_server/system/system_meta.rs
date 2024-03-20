@@ -18,7 +18,7 @@ pub fn get_system_meta_info() -> Vec<MetaInfo> {
 }
 
 ///
-/// Returns a HashMap of form {String, (String, u64)} with relevant meta information
+/// Returns a vec of MetaInfo datastructures with relevant meta information
 /// about the system running
 ///
 fn get_meta_info_vec(s: System) -> Vec<MetaInfo> {
@@ -63,6 +63,41 @@ fn get_meta_info_vec(s: System) -> Vec<MetaInfo> {
         "total_swap".to_string(),
         total_swap,
         convert_memory(total_swap),
+    ));
+    meta_infos.push(create_meta_info_struct(
+        "percentage_used_memory".to_string(),
+        percentage_used_memory,
+        format!("{}%", percentage_used_memory),
+    ));
+    meta_infos.push(create_meta_info_struct(
+        "free_swap".to_string(),
+        free_swap,
+        convert_memory(free_swap),
+    ));
+    meta_infos.push(create_meta_info_struct(
+        "num_cpus".to_string(),
+        num_cpus,
+        num_cpus.to_string(),
+    ));
+    meta_infos.push(create_meta_info_struct(
+        "system_name".to_string(),
+        0,
+        get_string_from_option(system_name),
+    ));
+    meta_infos.push(create_meta_info_struct(
+        "system_kernel".to_string(),
+        0,
+        get_string_from_option(system_kernel),
+    ));
+    meta_infos.push(create_meta_info_struct(
+        "os_version".to_string(),
+        0,
+        get_string_from_option(os_version),
+    ));
+    meta_infos.push(create_meta_info_struct(
+        "host_name".to_string(),
+        0,
+        get_string_from_option(host_name),
     ));
 
     return meta_infos;
