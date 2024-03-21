@@ -4,10 +4,15 @@ import { ref } from 'vue';
 import type { MetaInfo } from '@/types/metaInfo';
 
 
-export async function useSystemMetaInfo(serverUrl: string) {
+export async function useSystemMetaInfo(serverUrl: string): Promise<MetaInfo[]> {
     const metaInfo: MetaInfo[] = await getSystemMetaInfo(serverUrl);
-    console.log(metaInfo);
+    console.log(metaInfo)
+    return metaInfo;
 }
+
+
+
+
 
 
 
@@ -15,11 +20,12 @@ async function getSystemMetaInfo(serverUrl: string) {
     const response = await fetch(serverUrl.toString()).then(
         response => {
             if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+                throw new Error(`HTTP error! status: ${response.status}`)
             }
-            return response.json(); // Parse the response as JSON
+
+            return response.json()
         }
     );
 
-    return response// Return the parsed JSON object
+    return response
 }
