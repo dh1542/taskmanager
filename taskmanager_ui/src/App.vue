@@ -9,7 +9,7 @@ import { onMounted, ref } from "vue";
 import { useSystemMetaInfo } from "./composables/useSystemMetaInfo";
 import type { MetaInfo } from "@/types/metaInfo";
 
-const serverUrl = 'http://localhost:8000/posts/1';
+const serverUrl = 'http://localhost:8000/systemMeta';
 let computedMeta = ref<MetaInfo[]>([]);
 
 onMounted(async () => {
