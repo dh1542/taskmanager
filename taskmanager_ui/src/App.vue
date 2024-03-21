@@ -4,22 +4,18 @@
 
 
 <script setup lang="ts">
-  const url = "http://localhost:8000/posts/2"
-  const response = await fetch(url.toString()).then(
-    response => {
-      if(!response.ok){
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      return response.text();
-    }
-  )
+import { useSystemMetaInfo } from "./composables/useSystemMetaInfo";
 
-  console.log(JSON.parse(response))
-  
+const serverUrl = 'http://localhost:8000/posts/1';
+
+useSystemMetaInfo(serverUrl)
+
+
+
+
+
 </script>
 
 
 
-<style scoped>
-
-</style>
+<style scoped></style>
