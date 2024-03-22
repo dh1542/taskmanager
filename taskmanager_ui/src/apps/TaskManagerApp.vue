@@ -4,6 +4,12 @@
             <v-toolbar color="primary">
                 <v-toolbar-title>Task Manager</v-toolbar-title>
                 <v-spacer></v-spacer>
+                <v-btn icon>
+                    <v-icon>mdi-magnify</v-icon>
+                </v-btn>
+                <v-btn icon>
+                    <v-icon>mdi-dots-vertical</v-icon>
+                </v-btn>
                 <template v-slot:extension>
                     <v-tabs v-model="tab" bg-color="primary">
                         <v-tab value="one">Processes</v-tab>
@@ -15,11 +21,17 @@
             <v-card-text>
                 <v-window v-model="tab">
                     <v-window-item value="one">
-                        Processes will be displayed here
+                        <div class="one">
+                            Processes will be displayed here
+                        </div>
+
                     </v-window-item>
 
                     <v-window-item value="two">
-                        Performance will be displayed here
+                        <div class="one">
+                            <SystemMetaInformationApp></SystemMetaInformationApp>
+                        </div>
+
                     </v-window-item>
                 </v-window>
             </v-card-text>
@@ -28,6 +40,8 @@
 </template>
 
 <script setup lang="ts">
+import SystemMetaInformationApp from "./SystemMetaInformationApp.vue";
+
 import { ref } from "vue";
 const tab = ref<string>('one');
 
@@ -35,10 +49,18 @@ const tab = ref<string>('one');
 
 
 <style scoped>
+.one {
+    margin: 0;
+    padding: 0;
+    width: 100rem;
+    height: 100rem;
+
+}
+
 .main-box {
-    border: 1px solid black;
+
     margin: auto;
-    padding: 2rem 0;
+
     height: 95rem;
     width: 95rem;
 
