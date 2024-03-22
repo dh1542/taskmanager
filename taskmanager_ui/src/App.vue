@@ -1,10 +1,15 @@
 <template>
-  <h1>HELLO WORLD</h1>
-  <p>computed: {{ computedMeta }}</p>
+  <TaskManagerApp></TaskManagerApp>
 </template>
 
 
 <script setup lang="ts">
+
+import TaskManagerApp from "./apps/TaskManagerApp.vue";
+
+
+
+
 import { onMounted, ref } from "vue";
 import { useSystemMetaInfo } from "./composables/useSystemMetaInfo";
 import type { MetaInfo } from "@/types/metaInfo";
@@ -19,15 +24,6 @@ onMounted(async () => {
     computedMeta.value = await useSystemMetaInfo(serverUrl);
   }, 5000);
 })
-
-
-
-
-
-
-
-
-
 
 </script>
 
