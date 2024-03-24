@@ -38,66 +38,66 @@ fn get_meta_info_vec(s: System) -> Vec<MetaInfo> {
     let host_name: Option<String> = System::host_name();
 
     meta_infos.push(create_meta_info_struct(
-        "total_memory".to_string(),
+        "Total Memory".to_string(),
         total_memory,
         convert_memory(total_memory),
     ));
 
     meta_infos.push(create_meta_info_struct(
-        "used_memory".to_string(),
+        "Used Memory".to_string(),
         used_memory,
         convert_memory(used_memory),
     ));
 
     meta_infos.push(create_meta_info_struct(
-        "available_memory".to_string(),
+        "Available Memory".to_string(),
         available_memory,
         convert_memory(available_memory),
     ));
     meta_infos.push(create_meta_info_struct(
-        "used_swap".to_string(),
-        used_swap,
-        convert_memory(used_swap),
-    ));
-    meta_infos.push(create_meta_info_struct(
-        "total_swap".to_string(),
-        total_swap,
-        convert_memory(total_swap),
-    ));
-    meta_infos.push(create_meta_info_struct(
-        "percentage_used_memory".to_string(),
+        "Percentage Memory Used".to_string(),
         percentage_used_memory,
         format!("{}%", percentage_used_memory),
     ));
     meta_infos.push(create_meta_info_struct(
-        "free_swap".to_string(),
+        "Total Swap".to_string(),
+        total_swap,
+        convert_memory(total_swap),
+    ));
+    meta_infos.push(create_meta_info_struct(
+        "Used Swap".to_string(),
+        used_swap,
+        convert_memory(used_swap),
+    ));
+    meta_infos.push(create_meta_info_struct(
+        "Free Swap".to_string(),
         free_swap,
         convert_memory(free_swap),
     ));
     meta_infos.push(create_meta_info_struct(
-        "num_cpus".to_string(),
-        num_cpus,
-        num_cpus.to_string(),
-    ));
-    meta_infos.push(create_meta_info_struct(
-        "system_name".to_string(),
+        "System Name".to_string(),
         0,
         get_string_from_option(system_name),
     ));
     meta_infos.push(create_meta_info_struct(
-        "system_kernel".to_string(),
+        "Host Name".to_string(),
+        0,
+        get_string_from_option(host_name),
+    ));
+    meta_infos.push(create_meta_info_struct(
+        "Number of CPUs".to_string(),
+        num_cpus,
+        num_cpus.to_string(),
+    ));
+    meta_infos.push(create_meta_info_struct(
+        "Kernel Name".to_string(),
         0,
         get_string_from_option(system_kernel),
     ));
     meta_infos.push(create_meta_info_struct(
-        "os_version".to_string(),
+        "OS Version".to_string(),
         0,
         get_string_from_option(os_version),
-    ));
-    meta_infos.push(create_meta_info_struct(
-        "host_name".to_string(),
-        0,
-        get_string_from_option(host_name),
     ));
 
     return meta_infos;
