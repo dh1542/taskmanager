@@ -3,52 +3,34 @@
         <thead>
             <tr>
                 <th class="text-left">
-                    <h2>Memory</h2>
+                    <h1>Performance</h1>
                 </th>
                 <th class="text-left"></th>
             </tr>
         </thead>
         <tbody>
-            <tr v-for="item in memorySection" :key="item.name">
-                <td>{{ item.name }}</td>
-                <td>{{ item.value_s }}</td>
-            </tr>
-        </tbody>
-    </v-table>
-
-    <v-table>
-        <thead>
-            <tr>
-                <th class="text-left">
-                    <h2>Swap</h2>
-                </th>
-                <th class="text-left"></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr v-for="item in swapSection" :key="item.name">
-                <td>{{ item.name }}</td>
-                <td>{{ item.value_s }}</td>
-            </tr>
-        </tbody>
-    </v-table>
-
-    <v-table>
-        <thead>
-            <tr>
-                <th class="text-left">
-                    <h2>System</h2>
-                </th>
-                <th class="text-left"></th>
-            </tr>
-        </thead>
-        <tbody>
+            <h3>System</h3>
             <tr v-for="item in cpuSection" :key="item.name">
                 <td>{{ item.name }}</td>
                 <td>{{ item.value_s }}</td>
             </tr>
+
+            <h3>Memory</h3>
+            <tr v-for="item in memorySection" :key="item.name">
+                <td>{{ item.name }}</td>
+                <td>{{ item.value_s }}</td>
+            </tr>
+
+            <h3>Swap</h3>
+            <tr v-for="item in swapSection" :key="item.name">
+                <td>{{ item.name }}</td>
+                <td>{{ item.value_s }}</td>
+            </tr>
+
+
         </tbody>
     </v-table>
+
 </template>
 
 <script setup lang="ts">
@@ -74,4 +56,9 @@ onMounted(async () => {
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+.v-table {
+
+    width: 100rem;
+}
+</style>
