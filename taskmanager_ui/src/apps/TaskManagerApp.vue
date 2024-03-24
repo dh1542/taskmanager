@@ -24,14 +24,12 @@
                         <div class="one">
                             Processes will be displayed here
                         </div>
-
                     </v-window-item>
 
                     <v-window-item value="two">
                         <div class="one">
                             <SystemMetaInformationApp></SystemMetaInformationApp>
                         </div>
-
                     </v-window-item>
                 </v-window>
             </v-card-text>
